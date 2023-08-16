@@ -1,10 +1,10 @@
 CREATE DATABASE Health_Clinic
 USE Health_Clinic
 
-CREATE TABLE TipodeUsuario
+CREATE TABLE TipoDeUsuario
 (
 	IdTipoUsuario INT PRIMARY KEY IDENTITY,
-	TituloTipoUsuario VARCHAR(30) NOT NULL
+	TituloTipoUsuario VARCHAR(30) NOT NULL UNIQUE
 )
 
 CREATE TABLE Especialidade
@@ -28,6 +28,7 @@ CREATE TABLE Usuario
 (
 	IdUsuario INT PRIMARY KEY IDENTITY,
 	IdTipoUsuario INT FOREIGN KEY REFERENCES TipoDeUsuario(IdTipoUsuario) NOT NULL,
+	Nome VARCHAR(90) NOT NULL,
 	Email VARCHAR(90) NOT NULL,
 	Senha VARCHAR(30) NOT NULL
 )
@@ -38,7 +39,6 @@ CREATE TABLE Medico
 	IdUsuario INT FOREIGN KEY REFERENCES Usuario(IdUsuario) NOT NULL UNIQUE,
 	IdEspecialidade INT FOREIGN KEY REFERENCES Especialidade(IdEspecialidade) NOT NULL,
 	IdClinica INT FOREIGN KEY REFERENCES Clinica(IdClinica) NOT NULL,
-	NomeMedico VARCHAR(90) NOT NULL,
 	CRM VARCHAR(20) NOT NULL UNIQUE
 )
 
@@ -46,7 +46,6 @@ CREATE TABLE Paciente
 (
 	IdPaciente INT PRIMARY KEY IDENTITY,
 	IdUsuario INT FOREIGN KEY REFERENCES Usuario(IdUsuario) NOT NULL UNIQUE,
-	NomePaciente VARCHAR(90) NOT NULL,
 	DataNascimento DATE NOT NULL,
 	Sexo VARCHAR(30) NOT NULL,
 	Endereco VARCHAR(30) NOT NULL,
@@ -61,6 +60,7 @@ CREATE TABLE Consulta
 	IdMedico INT FOREIGN KEY REFERENCES Medico(IdMedico) NOT NULL,
 	[Local] VARCHAR(30) NOT NULL,
 	Hora TIME NOT NULL,
+	Dia DATE NOT NULL,
 	Descricao VARCHAR(90) NOT NULL
 )
 
@@ -69,6 +69,7 @@ CREATE TABLE Comentario
 	IdComentario INT PRIMARY KEY IDENTITY,
 	IdPaciente INT FOREIGN KEY REFERENCES Paciente(IdPaciente) NOT NULL,
 	IdConsulta INT FOREIGN KEY REFERENCES Consulta(IdConsulta) NOT NULL,
+	Permissao BIT DEFAULT(0),
 	Comentario VARCHAR(120) NOT NULL
 )
 
