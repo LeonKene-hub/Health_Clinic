@@ -1,10 +1,18 @@
-﻿using API_HealthClinic.Domains;
+﻿using API_HealthClinic.Context;
+using API_HealthClinic.Domains;
 using API_HealthClinic.Interfaces;
 
 namespace API_HealthClinic.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
+        private readonly HealthContext ctx;
+
+        public UsuarioRepository()
+        {
+            ctx = new HealthContext();
+        }
+
         public void Atualizar(Usuario usuario)
         {
             throw new NotImplementedException();

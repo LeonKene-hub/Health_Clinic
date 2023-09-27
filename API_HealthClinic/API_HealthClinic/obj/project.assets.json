@@ -7777,19 +7777,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\56026708820\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\56026708820\\Desktop\\Health_Clinic\\API_HealthClinic\\API_HealthClinic\\API_HealthClinic.csproj",
+      "projectUniqueName": "C:\\Users\\User\\OneDrive\\Área de Trabalho\\Health_Clinic\\API_HealthClinic\\API_HealthClinic\\API_HealthClinic.csproj",
       "projectName": "API_HealthClinic",
-      "projectPath": "C:\\Users\\56026708820\\Desktop\\Health_Clinic\\API_HealthClinic\\API_HealthClinic\\API_HealthClinic.csproj",
-      "packagesPath": "C:\\Users\\56026708820\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\56026708820\\Desktop\\Health_Clinic\\API_HealthClinic\\API_HealthClinic\\obj\\",
+      "projectPath": "C:\\Users\\User\\OneDrive\\Área de Trabalho\\Health_Clinic\\API_HealthClinic\\API_HealthClinic\\API_HealthClinic.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\OneDrive\\Área de Trabalho\\Health_Clinic\\API_HealthClinic\\API_HealthClinic\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\56026708820\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7869,7 +7869,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
