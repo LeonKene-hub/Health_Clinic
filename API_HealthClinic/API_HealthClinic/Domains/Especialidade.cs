@@ -1,11 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API_HealthClinic.Domains
 {
     [Table(nameof(Especialidade))]
+    [Index(nameof(Nome))]
     public class Especialidade
     {
+        [Key]
         public Guid IdEspecialidade { get; set; }
 
         [Column(TypeName = "VARCHAR(70)")]

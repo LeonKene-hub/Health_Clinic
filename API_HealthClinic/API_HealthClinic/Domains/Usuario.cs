@@ -23,6 +23,7 @@ namespace API_HealthClinic.Domains
         [Required(ErrorMessage = "Nome obrigatorio!")]
         public string? Nome { get; set; }
 
+        //referencia a tabela tipoUsuario
         [Required(ErrorMessage = "Informe o tipo do usuario!")]
         public Guid IdTipoUsuario { get; set; }
 

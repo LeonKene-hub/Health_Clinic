@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "gbZ/etL7Wb1huYjCDybYZCXO/g1gthyeYuIB3nWxsck=",
+  "Source": "API_HealthClinic",
+  "BasePath": "_content/API_HealthClinic",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
