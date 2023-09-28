@@ -9,6 +9,14 @@ namespace API_HealthClinic.Repositories
         private readonly HealthContext ctx;
 
         public UsuarioRepository()
+<<<<<<< HEAD
+=======
+        {
+            ctx = new HealthContext();
+        }
+
+        public void Atualizar(Usuario usuario)
+>>>>>>> c355ffe71834f8f6e0e5910bab367a2b5a4b1e19
         {
             ctx = new HealthContext();
         }

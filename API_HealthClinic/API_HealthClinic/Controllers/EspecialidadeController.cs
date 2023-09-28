@@ -15,7 +15,11 @@ namespace API_HealthClinic.Controllers
 
         public EspecialidadeController()
         {
+<<<<<<< HEAD
             _especialidadeRepository = new EspecialidadeRepository();
+=======
+              _especialidadeRepository = new EspecialidadeRepository();
+>>>>>>> c355ffe71834f8f6e0e5910bab367a2b5a4b1e19
         }
 
         [HttpGet]
