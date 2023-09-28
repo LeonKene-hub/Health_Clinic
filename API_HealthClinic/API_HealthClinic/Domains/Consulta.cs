@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API_HealthClinic.Domains
@@ -20,6 +21,11 @@ namespace API_HealthClinic.Domains
         [Column(TypeName = "TEXT")]
         [Required(ErrorMessage = "Descricao da consulta obrigatorio!")]
         public string? Descricao { get; set; }
+
+        [Column(TypeName = "BIT")]
+        [DefaultValue("false")]
+        [Required(ErrorMessage = "Consulta confirmada?")]
+        public bool Status { get; set; }
 
         //referencia a tabela paciente
         [Required(ErrorMessage = "Identificacao do paciente obrigatorio!")]

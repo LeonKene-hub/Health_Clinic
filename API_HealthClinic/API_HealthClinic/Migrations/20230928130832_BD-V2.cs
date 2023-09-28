@@ -157,6 +157,7 @@ namespace API_HealthClinic.Migrations
                     Local = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     Hora = table.Column<DateTime>(type: "SMALLDATETIME", nullable: false),
                     Descricao = table.Column<string>(type: "TEXT", nullable: false),
+                    Status = table.Column<bool>(type: "BIT", nullable: false),
                     IdPaciente = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdMedico = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -168,13 +169,13 @@ namespace API_HealthClinic.Migrations
                         column: x => x.IdMedico,
                         principalTable: "Medico",
                         principalColumn: "IdMedico",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Consulta_Paciente_IdPaciente",
                         column: x => x.IdPaciente,
                         principalTable: "Paciente",
                         principalColumn: "IdPaciente",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

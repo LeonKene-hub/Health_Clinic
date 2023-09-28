@@ -9,13 +9,13 @@ namespace API_HealthClinic.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class ClinicaController : ControllerBase
+    public class MedicoController : ControllerBase
     {
-        private IClinicaRepository _clinicaRepository;
+        private IMedicoRepository _medicoRepository;
 
-        public ClinicaController()
+        public MedicoController()
         {
-            _clinicaRepository = new ClinicaRepository();
+            _medicoRepository = new MedicoRepository();
         }
 
         [HttpGet]
@@ -23,7 +23,7 @@ namespace API_HealthClinic.Controllers
         {
             try
             {
-                List<Clinica> lista = _clinicaRepository.ListarTodos();
+                List<Medico> lista = _medicoRepository.ListarTodos();
                 return Ok(lista);
             }
             catch (Exception e)
@@ -37,8 +37,8 @@ namespace API_HealthClinic.Controllers
         {
             try
             {
-                Clinica clinica = _clinicaRepository.BuscarPorId(id);
-                return Ok(clinica);
+                Medico medico = _medicoRepository.BuscarPorId(id);
+                return Ok(medico);
             }
             catch (Exception e)
             {
@@ -47,11 +47,11 @@ namespace API_HealthClinic.Controllers
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(Clinica clinica)
+        public IActionResult Cadastrar(Medico medico)
         {
             try
             {
-                _clinicaRepository.Cadastrar(clinica);
+                _medicoRepository.Cadastrar(medico);
                 return StatusCode(201);
             }
             catch (Exception e)
@@ -61,11 +61,11 @@ namespace API_HealthClinic.Controllers
         }
 
         [HttpPut]
-        public IActionResult Atualizar(Guid id, Clinica clinica)
+        public IActionResult Atualizar(Guid id, Medico medico)
         {
             try
             {
-                _clinicaRepository.Atualizar(id, clinica);
+                _medicoRepository.Atualizar(id, medico);
                 return StatusCode(201);
             }
             catch (Exception e)
@@ -79,7 +79,7 @@ namespace API_HealthClinic.Controllers
         {
             try
             {
-                _clinicaRepository.Deletar(id);
+                _medicoRepository.Deletar(id);
                 return StatusCode(204);
             }
             catch (Exception e)

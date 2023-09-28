@@ -8,7 +8,7 @@ namespace API_HealthClinic.Interfaces
 
         List<Usuario> ListarTodos();
 
-        void Atualizar(Usuario usuario);
+        void Atualizar(Guid id, Usuario usuario);
 
         void Delete(Guid id);
 

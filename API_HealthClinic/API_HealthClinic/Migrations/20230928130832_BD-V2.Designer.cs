@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API_HealthClinic.Migrations
 {
     [DbContext(typeof(HealthContext))]
-    [Migration("20230927114611_BD-V2")]
+    [Migration("20230928130832_BD-V2")]
     partial class BDV2
     {
         /// <inheritdoc />
@@ -110,6 +110,9 @@ namespace API_HealthClinic.Migrations
                     b.Property<string>("Local")
                         .IsRequired()
                         .HasColumnType("VARCHAR(100)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("BIT");
 
                     b.HasKey("IdConsulta");
 

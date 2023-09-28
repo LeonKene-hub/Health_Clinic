@@ -1,28 +1,49 @@
-﻿using API_HealthClinic.Domains;
+﻿using API_HealthClinic.Context;
+using API_HealthClinic.Domains;
 using API_HealthClinic.Interfaces;
 
 namespace API_HealthClinic.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
-        public void Atualizar(Usuario usuario)
+        private readonly HealthContext ctx;
+
+        public UsuarioRepository()
         {
-            throw new NotImplementedException();
+            ctx = new HealthContext();
+        }
+
+        public void Atualizar(Guid id, Usuario usuario)
+        {
+            Usuario usuarioBuscado = ctx.Usuario.Find(id)!;
+
+            if (usuarioBuscado != null)
+            {
+                usuarioBuscado.IdTipoUsuario = usuario.IdTipoUsuario;
+                usuarioBuscado.Email= usuario.Email; 
+                usuarioBuscado.Senha= usuario.Senha;
+            }
+            ctx.Update(usuarioBuscado);
+            ctx.SaveChanges();
         }
 
         public void Cadastrar(Usuario usuario)
         {
-            throw new NotImplementedException();
+            usuario.IdUsuario = Guid.NewGuid();
+            ctx.Usuario.Add(usuario);
+            ctx.SaveChanges();
         }
 
         public void Delete(Guid id)
         {
-            throw new NotImplementedException();
+            Usuario usuarioBuscado = ctx.Usuario.Find(id)!;
+            ctx.Usuario.Remove(usuarioBuscado);
+            ctx.SaveChanges();
         }
 
         public List<Usuario> ListarTodos()
         {
-            throw new NotImplementedException();
+            return ctx.Usuario.ToList();
         }
 
         public Usuario Login(string email, string senha)

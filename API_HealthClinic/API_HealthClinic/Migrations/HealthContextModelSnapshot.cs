@@ -108,6 +108,9 @@ namespace API_HealthClinic.Migrations
                         .IsRequired()
                         .HasColumnType("VARCHAR(100)");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("BIT");
+
                     b.HasKey("IdConsulta");
 
                     b.HasIndex("IdMedico");
