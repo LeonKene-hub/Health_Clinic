@@ -4,6 +4,151 @@
         <name>API_HealthClinic</name>
     </assembly>
     <members>
+        <member name="T:API_HealthClinic.Domains.Clinica">
+            <summary>
+            Domain de clinica, define tabela clinica
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Clinica.IdClinica">
+            <summary>
+            Identificador unico de clinica
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Clinica.RazaoSocial">
+            <summary>
+            Nome oficial da clinica
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Clinica.NomeFantasia">
+            <summary>
+            Nome popular da clinica
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Clinica.Endereco">
+            <summary>
+            Endereco da unidade
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Clinica.CNPJ">
+            <summary>
+            Codigo de identificacao da empresa
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Clinica.HorarioAbertura">
+            <summary>
+            Horario de abertura da clinica
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Clinica.HorarioFechamento">
+            <summary>
+            Horario de fechamento da clinica
+            </summary>
+        </member>
+        <member name="T:API_HealthClinic.Domains.Comentario">
+            <summary>
+            Domain de comentario, define tabela comentario
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Comentario.IdComentario">
+            <summary>
+            Identificador unico de comentario
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Comentario.ComentarioConsulta">
+            <summary>
+            Texto do comentario feito
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Comentario.Permissao">
+            <summary>
+            Status que define se o comentario sera exibido ao publico geral
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Comentario.IdPaciente">
+            <summary>
+            Identificador do usuario que realizou o comentario
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Comentario.paciente">
+            <summary>
+            Referencia a tabela de paciente
+            </summary>
+        </member>
+        <member name="T:API_HealthClinic.Domains.Consulta">
+            <summary>
+            Domain de consulta, define tabela consulta
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Consulta.IdConsulta">
+            <summary>
+            Identificador unico de consulta
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Consulta.Local">
+            <summary>
+            Endereco e local a qual a consulta foi agendada
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Consulta.Hora">
+            <summary>
+            Horario marcado para a consulta
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Consulta.Descricao">
+            <summary>
+            Descricao da consulta a ser realizada
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Consulta.Status">
+            <summary>
+            Status que exibe se a consulta esta ativa ou cancelada
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Consulta.IdPaciente">
+            <summary>
+            Identificador unico de paciente
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Consulta.paciente">
+            <summary>
+            Referencia a tabela de paciente
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Consulta.IdMedico">
+            <summary>
+            Identificador unico de medico
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Consulta.medico">
+            <summary>
+            Referencia a tabela de medico
+            </summary>
+        </member>
+        <member name="T:API_HealthClinic.Domains.Especialidade">
+            <summary>
+            Domain de especialidade, define tabela especialidade
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Especialidade.IdEspecialidade">
+            <summary>
+            Identificador unico de especialidade
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Especialidade.Nome">
+            <summary>
+            Nome da especialidade
+            </summary>
+        </member>
+        <member name="T:API_HealthClinic.Domains.Medico">
+            <summary>
+            Domain de medico, define tabela medico
+            </summary>
+        </member>
+        <member name="P:API_HealthClinic.Domains.Medico.IdMedico">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:API_HealthClinic.Migrations.BDV2">
             <inheritdoc />
         </member>
