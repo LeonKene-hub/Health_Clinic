@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API_HealthClinic</name>
+    </assembly>
+    <members>
+        <member name="T:API_HealthClinic.Migrations.BDV2">
+            <inheritdoc />
+        </member>
+        <member name="M:API_HealthClinic.Migrations.BDV2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:API_HealthClinic.Migrations.BDV2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:API_HealthClinic.Migrations.BDV2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

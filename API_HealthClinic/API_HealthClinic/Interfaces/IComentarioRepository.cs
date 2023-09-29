@@ -8,7 +8,7 @@ namespace API_HealthClinic.Interfaces
 
         List<Comentario> ListarTodos();
 
-        void Atualizar(Guid id, Consulta consulta);
+        void Atualizar(Guid id, Comentario comentario);
 
         void Deletar(Guid id);
     }

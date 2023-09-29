@@ -1,6 +1,7 @@
 ﻿using API_HealthClinic.Context;
 using API_HealthClinic.Domains;
 using API_HealthClinic.Interfaces;
+using API_HealthClinic.Utils;
 
 namespace API_HealthClinic.Repositories
 {
@@ -9,14 +10,6 @@ namespace API_HealthClinic.Repositories
         private readonly HealthContext ctx;
 
         public UsuarioRepository()
-<<<<<<< HEAD
-=======
-        {
-            ctx = new HealthContext();
-        }
-
-        public void Atualizar(Usuario usuario)
->>>>>>> c355ffe71834f8f6e0e5910bab367a2b5a4b1e19
         {
             ctx = new HealthContext();
         }
@@ -38,6 +31,7 @@ namespace API_HealthClinic.Repositories
         public void Cadastrar(Usuario usuario)
         {
             usuario.IdUsuario = Guid.NewGuid();
+            usuario.Senha = Criptografia.GerarHash(usuario.Senha!);
             ctx.Usuario.Add(usuario);
             ctx.SaveChanges();
         }
@@ -56,7 +50,38 @@ namespace API_HealthClinic.Repositories
 
         public Usuario Login(string email, string senha)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Usuario usuarioBuscado = ctx.Usuario.Select(u => new Usuario
+                {
+                    IdUsuario = u.IdUsuario,
+                    Email = u.Email,
+                    Senha = u.Senha,
+                    Nome = u.Nome,
+                    TiposUsuario = new TiposUsuario
+                    { 
+                        IdTipoUsuario= u.IdTipoUsuario,
+                        TituloTipoUsuario = u.TiposUsuario.TituloTipoUsuario
+                    }
+                }).FirstOrDefault(u => u.Email == email)!;
+
+                if (usuarioBuscado != null)
+                {
+                    bool confere = Criptografia.CompararHash(senha, usuarioBuscado.Senha!);
+
+                    if (confere)
+                    {
+                        return usuarioBuscado;
+                    }
+                }
+
+                return null!;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

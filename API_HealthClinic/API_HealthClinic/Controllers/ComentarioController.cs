@@ -9,13 +9,13 @@ namespace API_HealthClinic.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class EspecialidadeController : ControllerBase
+    public class ComentarioController : ControllerBase
     {
-        private IEspecialidadeRepository _especialidadeRepository;
+        private IComentarioRepository _comentarioRepository;
 
-        public EspecialidadeController()
+        public ComentarioController()
         {
-            _especialidadeRepository = new EspecialidadeRepository();
+            _comentarioRepository = new ComentarioRepository();
         }
 
         [HttpGet]
@@ -23,7 +23,7 @@ namespace API_HealthClinic.Controllers
         {
             try
             {
-                List<Especialidade> lista = _especialidadeRepository.ListarTodos();
+                List<Comentario> lista = _comentarioRepository.ListarTodos();
                 return Ok(lista);
             }
             catch (Exception e)
@@ -33,11 +33,25 @@ namespace API_HealthClinic.Controllers
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(Especialidade especialidade)
+        public IActionResult Cadastrar(Comentario comentario)
         {
             try
             {
-                _especialidadeRepository.Cadastrar(especialidade);
+                _comentarioRepository.Cadastrar(comentario);
+                return StatusCode(201);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpPut]
+        public IActionResult Atualizar(Guid id, Comentario comentario)
+        {
+            try
+            {
+                _comentarioRepository.Atualizar(id, comentario);
                 return StatusCode(201);
             }
             catch (Exception e)
@@ -47,11 +61,11 @@ namespace API_HealthClinic.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Deletar(Guid id)
+        public IActionResult Delete(Guid id)
         {
             try
             {
-                _especialidadeRepository.Deletar(id);
+                _comentarioRepository.Deletar(id);
                 return StatusCode(204);
             }
             catch (Exception e)
