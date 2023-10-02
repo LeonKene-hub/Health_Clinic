@@ -4,15 +4,26 @@ using API_HealthClinic.Interfaces;
 
 namespace API_HealthClinic.Repositories
 {
+    /// <summary>
+    /// Repositorio de clinica
+    /// </summary>
     public class ClinicaRepository : IClinicaRepository
     {
         private readonly HealthContext ctx;
 
+        /// <summary>
+        /// Construtor de clinica
+        /// </summary>
         public ClinicaRepository()
         {
             ctx = new HealthContext();
         }
 
+        /// <summary>
+        /// Metodo de atualizar clinica
+        /// </summary>
+        /// <param name="id">id da clinica</param>
+        /// <param name="clinica">novas informacoes</param>
         public void Atualizar(Guid id, Clinica clinica)
         {
             Clinica clinicaBuscada = ctx.Clinicas.Find(id)!;
@@ -30,6 +41,11 @@ namespace API_HealthClinic.Repositories
             ctx.SaveChanges();
         }
 
+        /// <summary>
+        /// Metodo de buscar por id da clinica
+        /// </summary>
+        /// <param name="id">id da clinica</param>
+        /// <returns>clinica encontrada</returns>
         public Clinica BuscarPorId(Guid id)
         {
             Clinica clinica = ctx.Clinicas.Find(id)!;
@@ -41,6 +57,10 @@ namespace API_HealthClinic.Repositories
             return null!;
         }
 
+        /// <summary>
+        /// Metodo de cadastrar clinica
+        /// </summary>
+        /// <param name="clinica">Informacoes da nova clinica</param>
         public void Cadastrar(Clinica clinica)
         {
             clinica.IdClinica = Guid.NewGuid();
@@ -48,6 +68,10 @@ namespace API_HealthClinic.Repositories
             ctx.SaveChanges();
         }
 
+        /// <summary>
+        /// Metodo de deletar clinica
+        /// </summary>
+        /// <param name="id">id da clinica</param>
         public void Deletar(Guid id)
         {
             Clinica clinica = ctx.Clinicas.Find(id)!;
@@ -55,6 +79,10 @@ namespace API_HealthClinic.Repositories
             ctx.SaveChanges();
         }
 
+        /// <summary>
+        /// Metodo de listar clinicas
+        /// </summary>
+        /// <returns>Lista de clinicas</returns>
         public List<Clinica> ListarTodos()
         {
             return ctx.Clinicas.ToList();

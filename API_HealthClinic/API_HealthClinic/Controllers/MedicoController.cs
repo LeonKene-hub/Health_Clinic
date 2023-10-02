@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API_HealthClinic.Controllers
 {
+    /// <summary>
+    /// Controller de medico
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
@@ -13,11 +16,18 @@ namespace API_HealthClinic.Controllers
     {
         private IMedicoRepository _medicoRepository;
 
+        /// <summary>
+        /// Construtor do controller
+        /// </summary>
         public MedicoController()
         {
             _medicoRepository = new MedicoRepository();
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo ListarTodos
+        /// </summary>
+        /// <returns>Lista de medico</returns>
         [HttpGet]
         public IActionResult ListarTodos()
         {
@@ -32,6 +42,11 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo BuscarPorId
+        /// </summary>
+        /// <param name="id">id de medico</param>
+        /// <returns>medico encontrado</returns>
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(Guid id)
         {
@@ -46,6 +61,11 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo de cadastrar
+        /// </summary>
+        /// <param name="medico">novo medico</param>
+        /// <returns>confirmacao ou erro</returns>
         [HttpPost]
         public IActionResult Cadastrar(Medico medico)
         {
@@ -60,6 +80,12 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo Atualizar
+        /// </summary>
+        /// <param name="id">id de medico</param>
+        /// <param name="medico">informacoes</param>
+        /// <returns>confirmacao ou erro</returns>
         [HttpPut]
         public IActionResult Atualizar(Guid id, Medico medico)
         {
@@ -74,6 +100,11 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo Deletar
+        /// </summary>
+        /// <param name="id">Id de medico</param>
+        /// <returns>confirmacao ou erro</returns>
         [HttpDelete]
         public IActionResult Deletar(Guid id)
         {

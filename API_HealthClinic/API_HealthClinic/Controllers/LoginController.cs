@@ -11,6 +11,9 @@ using JwtRegisteredClaimNames = System.IdentityModel.Tokens.Jwt.JwtRegisteredCla
 
 namespace API_HealthClinic.Controllers
 {
+    /// <summary>
+    /// Controller de login
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
@@ -18,11 +21,20 @@ namespace API_HealthClinic.Controllers
     {
         private IUsuarioRepository _usuarioRepository;
 
+        /// <summary>
+        /// Construtor do controller
+        /// </summary>
         public LoginController()
         {
             _usuarioRepository = new UsuarioRepository();
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo Login
+        /// </summary>
+        /// <param name="email">email do usuario</param>
+        /// <param name="senha">senha do usuario</param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Login(string email, string senha)
         {

@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API_HealthClinic.Controllers
 {
+    /// <summary>
+    /// Controller de TiposUsuario
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
@@ -13,11 +16,18 @@ namespace API_HealthClinic.Controllers
     {
         private ITiposUsuarioRepository _tiposUsuarioRepository;
 
+        /// <summary>
+        /// Construtor do controller
+        /// </summary>
         public TiposUsuarioController()
         {
             _tiposUsuarioRepository = new TiposUsuarioRepository();
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo ListarTodos
+        /// </summary>
+        /// <returns>Lista de TiposUsuario</returns>
         [HttpGet]
         public IActionResult ListarTodos()
         {
@@ -32,6 +42,11 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo de cadastrar
+        /// </summary>
+        /// <param name="tipo">novo tipo</param>
+        /// <returns>confirmacao ou erro</returns>
         [HttpPost]
         public IActionResult Cadastrar(TiposUsuario tipo)
         {
@@ -46,6 +61,11 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo Deletar
+        /// </summary>
+        /// <param name="id">Id da tipousuario</param>
+        /// <returns>confirmacao ou erro</returns>
         [HttpDelete]
         public IActionResult Deletar(Guid id)
         {

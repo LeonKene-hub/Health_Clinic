@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API_HealthClinic.Controllers
 {
+    /// <summary>
+    /// Controller de consulta
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
@@ -13,11 +16,18 @@ namespace API_HealthClinic.Controllers
     {
         private IConsultaRepository _consultaRepository;
 
+        /// <summary>
+        /// Construtor do controller
+        /// </summary>
         public ConsultaController()
         {
             _consultaRepository = new ConsultaRepository();
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo ListarTodos
+        /// </summary>
+        /// <returns>Lista de consulta</returns>
         [HttpGet]
         public IActionResult ListarTodos()
         {
@@ -32,6 +42,11 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo de cadastrar
+        /// </summary>
+        /// <param name="consulta">nova consulta</param>
+        /// <returns>confirmacao ou erro</returns>
         [HttpPost]
         public IActionResult Cadastrar(Consulta consulta)
         {
@@ -46,6 +61,12 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo Atualizar
+        /// </summary>
+        /// <param name="id">Id da consulta</param>
+        /// <param name="consulta">novas informacoes</param>
+        /// <returns>confirmacao ou erro</returns>
         [HttpPut]
         public IActionResult Atualizar(Guid id, Consulta consulta)
         {
@@ -60,6 +81,11 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo ListarListarPorMedico
+        /// </summary>
+        /// <param name="id">id do medico</param>
+        /// <returns>lista de consulta</returns>
         [HttpGet("Medico")]
         public IActionResult ListarListarPorMedico(Guid id)
         {
@@ -74,6 +100,11 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo ListarPorPaciente
+        /// </summary>
+        /// <param name="id">id do paciente</param>
+        /// <returns>lista de consulta</returns>
         [HttpGet("Paciente")]
         public IActionResult ListarPorPaciente(Guid id)
         {
@@ -88,6 +119,11 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo Delete
+        /// </summary>
+        /// <param name="id">Id da consulta</param>
+        /// <returns>confirmacao ou erro</returns>
         [HttpDelete]
         public IActionResult Delete(Guid id)
         {

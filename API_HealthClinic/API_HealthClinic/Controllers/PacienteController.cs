@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API_HealthClinic.Controllers
 {
+    /// <summary>
+    /// Controller de paciente
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
@@ -13,11 +16,18 @@ namespace API_HealthClinic.Controllers
     {
         private IPacienteRepository _pacienteRepository;
 
+        /// <summary>
+        /// Construtor do controller
+        /// </summary>
         public PacienteController()
         {
             _pacienteRepository = new PacienteRepository();
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo ListarTodos
+        /// </summary>
+        /// <returns>Lista de paciente</returns>
         [HttpGet]
         public IActionResult ListarTodos()
         {
@@ -32,6 +42,11 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo BuscarPorId
+        /// </summary>
+        /// <param name="id">id da paciente</param>
+        /// <returns>paciente encontrada</returns>
         [HttpGet("{id}")]
         public IActionResult BuscarPorId(Guid id)
         {
@@ -46,6 +61,11 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo de cadastrar
+        /// </summary>
+        /// <param name="paciente">novo paciente</param>
+        /// <returns>confirmacao ou erro</returns>
         [HttpPost]
         public IActionResult Cadastrar(Paciente paciente)
         {
@@ -60,6 +80,12 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo Atualizar
+        /// </summary>
+        /// <param name="id">Id de paciente</param>
+        /// <param name="paciente">novas informacoes</param>
+        /// <returns>confirmacao ou erro</returns>
         [HttpPut]
         public IActionResult Atualizar(Guid id, Paciente paciente)
         {
@@ -74,6 +100,11 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo Deletar
+        /// </summary>
+        /// <param name="id">Id de paciente</param>
+        /// <returns>confirmacao ou erro</returns>
         [HttpDelete]
         public IActionResult Deletar(Guid id)
         {
