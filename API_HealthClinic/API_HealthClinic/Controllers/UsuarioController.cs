@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API_HealthClinic.Controllers
 {
+    /// <summary>
+    /// Controller de usuario
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
@@ -13,11 +16,18 @@ namespace API_HealthClinic.Controllers
     {
         private IUsuarioRepository _usuarioRepository;
 
+        /// <summary>
+        /// Construtor do controller
+        /// </summary>
         public UsuarioController()
         {
             _usuarioRepository = new UsuarioRepository();
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo ListarTodos
+        /// </summary>
+        /// <returns>Lista de usuario</returns>
         [HttpGet]
         public IActionResult ListarTodos()
         {
@@ -32,6 +42,11 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo de cadastrar
+        /// </summary>
+        /// <param name="usuario">novo usuario</param>
+        /// <returns>confirmacao ou erro</returns>
         [HttpPost]
         public IActionResult Cadastrar(Usuario usuario)
         {
@@ -46,6 +61,12 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo Atualizar
+        /// </summary>
+        /// <param name="id">Id do usuario</param>
+        /// <param name="usuario">novas informacoes</param>
+        /// <returns>confirmacao ou erro</returns>
         [HttpPut]
         public IActionResult Atualizar(Guid id,Usuario usuario)
         {
@@ -60,6 +81,11 @@ namespace API_HealthClinic.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint que aciona o metodo Deletar
+        /// </summary>
+        /// <param name="id">Id do usuario</param>
+        /// <returns>confirmacao ou erro</returns>
         [HttpDelete]
         public IActionResult Deletar(Guid id)
         {
